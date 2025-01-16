@@ -13,7 +13,5 @@
     }
   ],
   "outputDirectory": "build",
-  "framework": "nextjs",
-  "public": "public",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD"
 }
