@@ -81,6 +81,7 @@ const SignupScreen = ({ history }) => {
               type="file"
               name="image"
               id="validatedCustomFile"
+              className="custom-file-input"
               {...register("image", {
                 required: true,
               })}
@@ -122,12 +123,12 @@ const SignupScreen = ({ history }) => {
             )}
           </div>
           <br />
-          <button className="btn btn-outline-warning btn-block" type="submit">
+          <button className="btn btn-primary btn-block" type="submit">
             Sign Up
           </button>
         </form>
         <p id="authFormFooter">
-          Already have an account. <Link to="/login">Click here</Link> to login.
+          Already have an account? <Link to="/login">Click here</Link> to login.
         </p>
       </div>
     </div>

@@ -73,13 +73,12 @@ const LoginScreen = ({ location }) => {
             )}
           </div>
           <br />
-          <button className="btn btn-outline-warning btn-block" type="submit">
+          <button className="btn btn-primary btn-block" type="submit">
             Login
           </button>
         </form>
         <p id="authFormFooter">
-          Don't have any account! <Link to="/signup">Click here</Link> to
-          singup.
+          Don't have an account? <Link to="/signup">Click here</Link> to sign up.
         </p>
       </div>
     </div>
