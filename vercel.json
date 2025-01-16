@@ -2,39 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
+        "src": "./package.json",
         "use": "@vercel/static-build",
         "config": { "distDir": "build" }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/v1/(.*)",
-        "dest": "http://127.0.0.1:8000/api/v1/$1"
-      },
-      {
-        "src": "/ws/(.*)",
-        "dest": "ws://127.0.0.1:8000/ws/$1"
-      },
-      {
-        "src": "/media/(.*)",
-        "dest": "http://127.0.0.1:8000/media/$1"
-      },
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/favicon.ico",
-        "dest": "/favicon.ico"
-      },
-      {
-        "src": "/manifest.json",
-        "dest": "/manifest.json"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
       }
     ],
     "rewrites": [
@@ -43,7 +13,11 @@
       { "source": "/api/v1/users/:userId/chats", "destination": "http://127.0.0.1:8000/api/v1/users/:userId/chats" },
       { "source": "/api/v1/chats/:chatId/messages", "destination": "http://127.0.0.1:8000/api/v1/chats/:chatId/messages" },
       { "source": "/ws/users/:userId/chat", "destination": "ws://127.0.0.1:8000/ws/users/:userId/chat" },
-      { "source": "/media/user/:path*", "destination": "http://127.0.0.1:8000/media/user/:path*" }
+      { "source": "/media/user/:path*", "destination": "http://127.0.0.1:8000/media/user/:path*" },
+      { "source": "/static/(.*)", "destination": "/static/$1" },
+      { "source": "/favicon.ico", "destination": "/favicon.ico" },
+      { "source": "/manifest.json", "destination": "/manifest.json" },
+      { "source": "/(.*)", "destination": "/index.html" }
     ],
     "headers": [
       {
