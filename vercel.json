@@ -2,32 +2,40 @@
     "version": 2,
     "builds": [
       {
-        "src": "./package.json",
+        "src": "client/package.json",
         "use": "@vercel/static-build",
-        "config": { "distDir": "build" }
+        "config": {
+          "distDir": "client/build"
+        }
       }
     ],
     "rewrites": [
-      { "source": "/api/v1/users/:path*", "destination": "http://127.0.0.1:8000/api/v1/users/:path*" },
-      { "source": "/api/v1/signup", "destination": "http://127.0.0.1:8000/api/v1/signup" },
-      { "source": "/api/v1/users/:userId/chats", "destination": "http://127.0.0.1:8000/api/v1/users/:userId/chats" },
-      { "source": "/api/v1/chats/:chatId/messages", "destination": "http://127.0.0.1:8000/api/v1/chats/:chatId/messages" },
-      { "source": "/ws/users/:userId/chat", "destination": "ws://127.0.0.1:8000/ws/users/:userId/chat" },
-      { "source": "/media/user/:path*", "destination": "http://127.0.0.1:8000/media/user/:path*" },
-      { "source": "/static/(.*)", "destination": "/static/$1" },
-      { "source": "/favicon.ico", "destination": "/favicon.ico" },
-      { "source": "/manifest.json", "destination": "/manifest.json" },
-      { "source": "/(.*)", "destination": "/index.html" }
-    ],
-    "headers": [
       {
         "source": "/(.*)",
-        "headers": [
-          { "key": "Access-Control-Allow-Credentials", "value": "true" },
-          { "key": "Access-Control-Allow-Origin", "value": "*" },
-          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-          { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization" }
-        ]
+        "destination": "/client/build/index.html"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/client/build/static/$1"
+      },
+      {
+        "src": "/favicon.ico",
+        "dest": "/client/build/favicon.ico"
+      },
+      {
+        "src": "/manifest.json",
+        "dest": "/client/build/manifest.json"
+      },
+      {
+        "src": "/logo192.png",
+        "dest": "/client/build/logo192.png"
+      },
+      {
+        "src": "/logo512.png",
+        "dest": "/client/build/logo512.png"
       }
     ]
+   
   }
