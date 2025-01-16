@@ -35,6 +35,8 @@ const ChatBody = ({ match, currentChattingMember, setOnlineUserList }) => {
     fetchChatMessage();
   }, [CommonUtil.getActiveChatId(match)]);
 
+
+  
   const loggedInUserId = CommonUtil.getUserId();
   const getChatMessageClassName = (userId) => {
     return loggedInUserId === userId

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useCallback} from "react";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
 import CookieUtil from "../../util/cookieUtil";
@@ -25,23 +25,35 @@ const Sidebar = (props) => {
     }
   };
 
-  const fetchChatUser = async () => {
+  // const fetchChatUser = async () => {
+  //   const url = ApiEndpoints.USER_CHAT_URL.replace(
+  //     Constants.USER_ID_PLACE_HOLDER,
+  //     CommonUtil.getUserId()
+  //   );
+  //   const chatUsers = await ApiConnector.sendGetRequest(url);
+  //   const formatedChatUser = CommonUtil.getFormatedChatUser(
+  //     chatUsers,
+  //     props.onlineUserList
+  //   );
+  //   setChatUsers(formatedChatUser);
+  //   redirectUserToDefaultChatRoom(formatedChatUser);
+  // };
+  const fetchChatUser = useCallback(async () => {
     const url = ApiEndpoints.USER_CHAT_URL.replace(
       Constants.USER_ID_PLACE_HOLDER,
       CommonUtil.getUserId()
     );
     const chatUsers = await ApiConnector.sendGetRequest(url);
-    const formatedChatUser = CommonUtil.getFormatedChatUser(
-      chatUsers,
-      props.onlineUserList
-    );
-    setChatUsers(formatedChatUser);
-    redirectUserToDefaultChatRoom(formatedChatUser);
-  };
+    setChatUsers(chatUsers);
+    redirectUserToDefaultChatRoom(chatUsers);
+  }, [props]);
 
   useEffect(() => {
     fetchChatUser();
-  }, []);
+  }, [fetchChatUser]);
+
+
+ 
 
   const getConnectedUserIds = () => {
     let connectedUsers = "";
