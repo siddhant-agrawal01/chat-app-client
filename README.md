@@ -10,7 +10,7 @@ Before you begin, ensure you have the following installed on your machine:
 - Node.js 14+
 - npm 6+
 - Django 3.2+
-- PostgreSQL (or any other preferred database)
+
 
 ## Installation
 
@@ -19,8 +19,7 @@ Before you begin, ensure you have the following installed on your machine:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/django-chat.git
-    cd django-chat
+    git clone 
     ```
 
 2. **Create a virtual environment and activate it:**
@@ -36,36 +35,17 @@ Before you begin, ensure you have the following installed on your machine:
     pip install -r requirements.txt
     ```
 
-4. **Set up the database:**
 
-    Update the `DATABASES` setting in `settings.py` with your database configuration.
 
-    ```python
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'yourdbname',
-            'USER': 'yourdbuser',
-            'PASSWORD': 'yourdbpassword',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-    ```
-
-5. **Run database migrations:**
+4. **Run database migrations:**
 
     ```bash
     python manage.py migrate
     ```
 
-6. **Create a superuser:**
 
-    ```bash
-    python manage.py createsuperuser
-    ```
 
-7. **Start the backend server:**
+5. **Start the backend server:**
 
     ```bash
     python manage.py runserver
@@ -89,16 +69,16 @@ Before you begin, ensure you have the following installed on your machine:
 
     ```bash
     npm start
-    npm start
+    ```
 
+## Test Login Credentials
 
+You can use the following credentials to test the application:
 
+- **User 1:**
+  - Email: saviantesech@gmail.com
+  - Password: y8[FiBao
 
-
-
-
-
-
-
-    user - savian , user 2 admin@gmail.com
-    pass-y8[FiBao
+- **User 2:**
+  - Email: admin@gmail.com
+  - Password: y8[FiBao
