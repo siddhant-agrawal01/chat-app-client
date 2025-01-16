@@ -161,9 +161,9 @@ const ChatBody = ({ match, currentChattingMember, setOnlineUserList }) => {
           ))}
         </div>
       </div>
-      <div className="flex-grow-0 py-3 px-4 border-top">
+      <div  className="flex-grow-0 py-3 px-4 border-top" >
         <form onSubmit={messageSubmitHandler}>
-          <div className="input-group">
+          <div  className="input-group">
             <input
               onChange={(event) => setInputMessage(event.target.value)}
               onKeyUp={chatMessageTypingHandler}
@@ -174,7 +174,21 @@ const ChatBody = ({ match, currentChattingMember, setOnlineUserList }) => {
               placeholder="Type your message"
               autoComplete="off"
             />
-            <button
+            <button  style={{
+          height: '45px',
+          width: '45px',
+          backgroundColor: 'green',
+          border: 'none',
+          borderRadius: '50%',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          marginLeft: '10px',
+          marginRight: '10px'
+        }}
               id="chat-message-submit"
               className="btn btn-outline-warning"
             >
